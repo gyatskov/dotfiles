@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+#
+# @author Gennadij Yatskov
+#
+#      _/_/_/    _/_/_/  _/      _/
+#   _/        _/          _/  _/
+#  _/  _/_/    _/_/        _/
+# _/    _/        _/      _/
+#  _/_/_/  _/_/_/        _/
+#
+
+# General aliases
+## Tmux
+alias tmux="TERM=screen-256color-bce tmux"
+alias tmux2="tmux -2"
+
+## Clipboard functionality using xclip
+alias ci='xclip -in -selection clipboard'
+alias co='xclip -out -selection clipboard'
+
+## IDE-friendly grepping using ripgrep
+alias rgn='rg --no-heading --line-number --column'
+
+## git
+alias gpr='git pull --rebase'
+alias gsy='git submodule sync'
+alias gsu='git submodule update --init --recursive'
+alias grv='git review'
+
