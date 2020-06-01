@@ -1,0 +1,44 @@
+{
+    "vim.useSystemClipboard": true,
+    "workbench.statusBar.feedback.visible": false,
+    "files.trimTrailingWhitespace": true,
+    "workbench.startupEditor": "newUntitledFile",
+
+    "editor.fontSize": 10,
+    "editor.codeLens": false,
+    "editor.renderWhitespace": "all",
+    "editor.renderControlCharacters": false,
+    "keyboard.dispatch": "keyCode",
+
+    "terminal.integrated.shell.linux": "/bin/zsh",
+    "terminal.integrated.fontSize": 10,
+    "terminal.integrated.fontFamily": "Source Code Pro for Powerline",
+    "terminal.integrated.commandsToSkipShell": ["-workbench.action.quickOpen"],
+
+    "C_Cpp.autocomplete": "Disabled",
+    "C_Cpp.formatting": "Disabled",
+    "C_Cpp.errorSquiggles": "Disabled",
+    "C_Cpp.intelliSenseEngine": "Disabled",
+    "window.zoomLevel": 3,
+
+    "ccls.launch.command": "/usr/local/bin/ccls",
+    "ccls.codeLens.renderInline": true,
+
+    "breadcrumbs.enabled": true,
+    "python.jediEnabled": false,
+    "editor.autoClosingBrackets": "beforeWhitespace",
+    "typescript.preferences.quoteStyle": "double",
+    "editor.autoClosingQuotes": "beforeWhitespace",
+    "editor.suggestSelection": "first",
+
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "editor.largeFileOptimizations": false,
+    "files.associations": {
+        "*.cl": "opencl"
+    },
+    "vim.smartcase": false,
+    "diffEditor.ignoreTrimWhitespace": false,
+    "files.exclude": {
+        "**/.ccls-cache": true
+    },
+}

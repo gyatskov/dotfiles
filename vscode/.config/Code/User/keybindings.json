@@ -1,0 +1,25 @@
+// Place your key bindings in this file to overwrite the defaults
+[
+        {   "key": "ctrl+s ctrl+w",
+            "command": "workbench.action.tasks.runTask",
+            "args": "rg word",
+            "when": "textInputFocus"
+        },
+        {
+            "key": "alt+numpad0",
+            "command": "workbench.action.toggleSidebarVisibility"
+        },
+        {
+            "key": "ctrl+b",
+            "command": "-workbench.action.toggleSidebarVisibility"
+        },
+        {
+            "key": "ctrl+j",
+            "command": "",
+        },
+        {
+            "key": "ctrl+j",
+            "command": "workbench.action.togglePanel",
+            "when": "!terminalFocus",
+        },
+]
