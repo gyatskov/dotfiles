@@ -1,0 +1,23 @@
+[global_config]
+  title_font = Source Code Pro for Powerline Medium 10
+  title_use_system_font = False
+[keybindings]
+[layouts]
+  [[default]]
+    [[[child1]]]
+      parent = window0
+      type = Terminal
+    [[[window0]]]
+      parent = ""
+      type = Window
+[plugins]
+[profiles]
+  [[default]]
+    background_darkness = 0.92
+    background_type = transparent
+    cursor_color = "#aaaaaa"
+    custom_command = zsh -i
+    font = Source Code Pro for Powerline Medium 14
+    scrollback_infinite = True
+    use_custom_command = True
+    use_system_font = False
