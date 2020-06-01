@@ -1,0 +1,15 @@
+font: 
+    # Normal font
+    normal:
+        family: Source Code Pro for Powerline
+        style: Regular
+
+    # Normal font
+    bold:
+        family: Source Code Pro for Powerline
+        style: Bold
+
+    # Normal font
+    italic:
+        family: Source Code Pro for Powerline
+        style: Italic
