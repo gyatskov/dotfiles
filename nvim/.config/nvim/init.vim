@@ -76,12 +76,12 @@ Plug 'othree/eregex.vim'
 " Linters
 Plug 'dense-analysis/ale'
 
-" fzf
-Plug '~/.fzf'
-Plug 'junegunn/fzf.vim'
-
 " versioning
 Plug 'tpope/vim-fugitive'
+
+" fzf
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 
 " python
 Plug 'bfredl/nvim-ipy'
