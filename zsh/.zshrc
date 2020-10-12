@@ -112,4 +112,5 @@ DEFAULT_USER=$USER
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export FZF_DEFAULT_COMMAND='fd --type f'
 export ALIEN_SECTION_TIME_FORMAT=%H:%M:%S # default is %r
+export ALIEN_THEME="gruvbox"
 
