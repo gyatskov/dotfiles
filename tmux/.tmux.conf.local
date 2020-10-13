@@ -45,6 +45,7 @@ tmux_conf_new_session_prompt=false
 # on macOS, this requires installing reattach-to-user-namespace, see README.md
 # on Linux, this requires xsel or xclip
 tmux_conf_copy_to_os_clipboard=true
+set -g set-clipboard on
 
 
 # -- user customizations -------------------------------------------------------
