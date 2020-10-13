@@ -41,4 +41,5 @@
     "files.exclude": {
         "**/.ccls-cache": true
     },
+    "python.languageServer": "Microsoft",
 }
