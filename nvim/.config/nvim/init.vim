@@ -73,8 +73,11 @@ Plug 'Shougo/denite.nvim'
 " Extended regex syntax
 Plug 'othree/eregex.vim'
 
-" Linters
+" Language servers
 Plug 'dense-analysis/ale'
+
+" Linters
+Plug 'rhysd/vim-clang-format'
 
 " versioning
 Plug 'tpope/vim-fugitive'
@@ -129,6 +132,8 @@ nn <silent> <M-h> :ALEHover<cr>
 " Syntastic settings
 let g:syntastic_cpp_compiler = "clang++"
 let g:syntastic_cpp_compiler_options = " -std=c++11"
+
+let g:clang_format#code_style = "file"
 
 " Color palette
 colorscheme gruvbox
