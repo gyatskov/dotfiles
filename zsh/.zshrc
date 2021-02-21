@@ -101,6 +101,7 @@ fi
 if [ -f ~/.use_nvr ]; then
     source ~/.use_nvr
 fi
+
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
@@ -119,8 +120,11 @@ source ~/.common_aliases
 # Used to suppress username display in status line.
 DEFAULT_USER=$USER
 
+# FZF
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export FZF_DEFAULT_COMMAND='fd --type f'
+
+# Theme
 export ALIEN_SECTION_TIME_FORMAT=%H:%M:%S # default is %r
 export ALIEN_THEME="gruvbox"
 
