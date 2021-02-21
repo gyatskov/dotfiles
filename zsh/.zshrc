@@ -88,6 +88,7 @@ source $ZSH/oh-my-zsh.sh
    export EDITOR='vim'
  else
    export EDITOR='nvim'
+   export VISUAL='nvim'
    export PAGER='most'
  fi
 

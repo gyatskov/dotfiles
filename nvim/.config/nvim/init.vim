@@ -106,6 +106,13 @@ Plug 'morhetz/gruvbox'
 
 call plug#end()
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""" Avoid nested instances
+if has('nvim') && executable('nvr')
+    let $VISUAL="nvr -cc split --remote-wait +'set bufhidden=wipe'"
+    let $GIT_EDITOR="nvr -cc split --remote-wait +'set bufhidden=wipe'"
+endif
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """ Custom Key mappings
 
