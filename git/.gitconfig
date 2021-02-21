@@ -1,5 +1,4 @@
 [core]
-	editor = nvim
 	excludesfile = ~/.gitignore
 	safecrlf = warn
 	eol = lf
@@ -7,13 +6,22 @@
 [user]
 	name = Gennadij Sergej Yatskov
 	email = vokstay@gmx.de
-[merge]
-	tool = nvim
 [mergetool "bc3"]
 	trustExitCode = true
 [mergetool "nvim"]
-	cmd = nvim -f -c \"Gdiff\" \"$MERGED\"
+    cmd = nvim -f -c \"Gvdiffsplit\" \"$MERGED\"
+[interactive]
+    diffFilter = delta --color-only
+[delta]
+    features = side-by-side line-numbers decorations
+    whitespace-error-style = 22 reverse
+[delta "decorations"]
+    commit-decoration-style = bold yellow box ul
+    file-style = bold yellow ul
+    file-decoration-style = none
+
 [alias]
+    # Example:
 	# git change-commits GIT_COMMITTER_NAME "old name" "new name"
 	change-commits = "!f() { VAR=$1; OLD=$2; NEW=$3; shift 3; git filter-branch --env-filter \"if [[ \\\"$`echo $VAR`\\\" = '$OLD' ]]; then export $VAR='$NEW'; fi\" $@; }; f "
 	# from https://help.github.com/articles/remove-sensitive-data
