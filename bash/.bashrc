@@ -90,6 +90,11 @@ fi
 export EDITOR='nvim'
 export PAGER='most'
 
+# Extend PATH, e.g. for executables added by pip
+if [ -f ~/.extend_path ]; then
+    source ~/.extend_path
+fi
+
 # Avoid nested editors
 if [ -f ~/.use_nvr ]; then
     source ~/.use_nvr
