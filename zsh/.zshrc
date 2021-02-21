@@ -91,6 +91,10 @@ source $ZSH/oh-my-zsh.sh
    export PAGER='most'
  fi
 
+# Avoid nested editors
+if [ -f ~/.use_nvr ]; then
+    source ~/.use_nvr
+fi
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
