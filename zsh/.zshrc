@@ -83,24 +83,33 @@ source $ZSH/oh-my-zsh.sh
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
-# Preferred editor for local and remote sessions
- if [[ -n $SSH_CONNECTION ]]; then
-   export EDITOR='vim'
- else
-   export EDITOR='nvim'
-   export VISUAL='nvim'
-   export PAGER='most'
- fi
-
 # Extend PATH, e.g. for executables added by pip
 if [ -f ~/.extend_path ]; then
     source ~/.extend_path
 fi
 
-# Avoid nested editors
-if [ -f ~/.use_nvr ]; then
-    source ~/.use_nvr
+# Preferred editor for local and remote sessions
+if [[ -n $SSH_CONNECTION ]]; then
+   export EDITOR='vim'
+else
+    if [[ -n "$(command -v nvim)" ]]; then
+        export EDITOR='nvim'
+        export VISUAL='nvim'
+        # Avoid nested editors
+        if [ -f ~/.use_nvr ]; then
+            source ~/.use_nvr
+        fi
+    fi
+    if [[ -n "$(command -v most)" ]]; then
+        export PAGER='most'
+    fi
 fi
+
+# Set delta pager to less, if it is installed
+if [[ -n "$(command -v delta)" ]]; then
+    export DELTA_PAGER=less
+fi
+
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
