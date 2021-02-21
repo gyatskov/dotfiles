@@ -10,6 +10,11 @@
 #
 
 # General aliases
+
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
+
 ## Tmux
 alias tmux2="tmux -2"
 
@@ -25,4 +30,5 @@ alias gpr='git pull --rebase'
 alias gsy='git submodule sync'
 alias gsu='git submodule update --init --recursive'
 alias grv='git review'
+alias gfa='git fetch --all --prune'
 
