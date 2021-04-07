@@ -145,6 +145,14 @@ function! s:denite_my_settings() abort
   nnoremap <silent><buffer><expr> <Space>
   \ denite#do_map('toggle_select').'j'
 endfunction
+
+nnoremap <Space>
+\ :Commands<CR>
+nnoremap <leader>f
+\ :Files<CR>
+nnoremap <leader>b
+\ :Buffers<CR>
+
 " Enables NERDTree
 nnoremap <C-n> :NERDTreeToggle<CR>
 
