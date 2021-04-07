@@ -68,7 +68,9 @@ Plug 'bling/vim-bufferline'
 Plug 'preservim/nerdtree', {'on': 'NERDTreeToggle'}
 Plug 'Xuyuanp/nerdtree-git-plugin', 
 Plug 'chrisbra/Recover.vim'
-Plug 'Shougo/denite.nvim'
+
+" denite
+Plug 'Shougo/denite.nvim', {'do': ':UpdateRemotePlugins'}
 
 " Extended regex syntax
 Plug 'othree/eregex.vim'
