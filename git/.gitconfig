@@ -3,6 +3,7 @@
 	safecrlf = warn
 	eol = lf
 	autocrlf = input
+    pager = delta
 [user]
 	name = Gennadij Sergej Yatskov
 	email = vokstay@gmx.de
