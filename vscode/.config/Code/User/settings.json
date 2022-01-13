@@ -41,5 +41,8 @@
     "files.exclude": {
         "**/.ccls-cache": true
     },
-    "python.languageServer": "Microsoft",
+    "python.languageServer": "Default",
+    "workbench.editorAssociations": {
+        "*.ipynb": "jupyter.notebook.ipynb"
+    },
 }
