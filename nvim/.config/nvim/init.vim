@@ -280,6 +280,9 @@ rust_tools.setup(rust_tools_opts)
 --for _, lsp in ipairs(servers) do
 --  lspconfig[lsp].setup { on_attach = on_attach }
 --end
+
+lspconfig.pyright.setup{on_attach=on_attach}
+
 EOF
 
 """ Custom Key mappings
