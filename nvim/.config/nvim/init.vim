@@ -332,3 +332,7 @@ let g:clang_format#code_style = "file"
 
 " Color palette
 colorscheme gruvbox
+
+" Disable unused providers
+let g:loaded_perl_provider = 0
+let g:loaded_ruby_provider = 0
