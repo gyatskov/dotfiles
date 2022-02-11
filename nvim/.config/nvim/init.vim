@@ -282,6 +282,8 @@ rust_tools.setup(rust_tools_opts)
 --end
 
 lspconfig.pyright.setup{on_attach=on_attach}
+lspconfig.eslint.setup{on_attach=on_attach}
+lspconfig.cssls.setup{on_attach=on_attach}
 
 EOF
 
