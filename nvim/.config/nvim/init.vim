@@ -323,6 +323,8 @@ nnoremap <leader>f
 \ :Files<CR>
 nnoremap <leader>b
 \ :Buffers<CR>
+nnoremap <leader>h
+\ :History:<CR>
 
 " Enables NERDTree
 nnoremap <C-n> :NERDTreeToggle<CR>
