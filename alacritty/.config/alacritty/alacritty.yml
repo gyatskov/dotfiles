@@ -1,3 +1,6 @@
+window:
+  columns: 200
+  lines: 50
 font: 
     # Normal font
     normal:
@@ -13,6 +16,8 @@ font:
     italic:
         family: Source Code Pro for Powerline
         style: Italic
+
+    size: 14.0
 
 
 # Colors (Gruvbox dark)
@@ -45,3 +50,4 @@ colors:
     magenta: '#d3869b'
     cyan:    '#8ec07c'
     white:   '#ebdbb2'
+
