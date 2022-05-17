@@ -13,6 +13,14 @@
 ##   ./install-all.sh
 ##
 
+set -eu
+
+if ! command -v stow; then
+    echo "The following tool must be installed:"
+    echo "stow"
+    exit 1
+fi
+
 for component in */; do
     if [[ -d $component ]]; then
         echo "Installing '$component'"
