@@ -126,7 +126,6 @@ endif
 lua << EOF
 local lspconfig = require('lspconfig')
 
-
 local on_attach = function(client, bufnr)
   local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
   local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
@@ -192,11 +191,6 @@ local rust_tools_opts = {
         -- the hints or just run :RustSetInlayHints.
         -- default: true
         autoSetHints = true,
-
-        -- whether to show hover actions inside the hover window
-        -- this overrides the default hover handler
-        -- default: true
-        hover_with_actions = true,
 
         runnables = {
             -- whether to use telescope for selection menu or not
