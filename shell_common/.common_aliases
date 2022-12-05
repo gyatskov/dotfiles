@@ -32,3 +32,4 @@ alias gsu='git submodule update --init --recursive'
 alias grv='git review'
 alias gfa='git fetch --all --prune'
 
+alias fd='fdfind'
