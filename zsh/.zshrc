@@ -9,7 +9,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 
-ZSH_THEME="alien"
+ZSH_THEME="alien-minimal/alien-minimal"
 
 # Customized agnoster:
 #ZSH_THEME="agnoster-hyatskov"
