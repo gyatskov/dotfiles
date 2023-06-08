@@ -66,8 +66,13 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'bling/vim-bufferline'
 Plug 'chrisbra/Recover.vim'
 
-" denite
-Plug 'Shougo/denite.nvim', {'do': ':UpdateRemotePlugins'}
+" ddu (former denite)
+Plug 'vim-denops/denops.vim'
+Plug 'Shougo/ddu.vim'
+Plug 'Shougo/ddu-ui-ff'
+Plug 'Shougo/ddu-filter-matcher_substring'
+Plug 'Shougo/ddu-kind-file'
+Plug 'Shougo/ddu-source-file_rec'
 
 " Extended regex syntax
 Plug 'othree/eregex.vim'
@@ -294,23 +299,51 @@ nnoremap <leader>vn :set virtualedit=<CR>
 " Toggles search highlighting with CTRL-/
 nnoremap <silent> <c-_> :set hlsearch!<cr>
 
-"" Plugin specific commands
-" denite
-autocmd FileType denite call s:denite_my_settings()
-function! s:denite_my_settings() abort
-  nnoremap <silent><buffer><expr> <CR>
-  \ denite#do_map('do_action')
-  nnoremap <silent><buffer><expr> d
-  \ denite#do_map('do_action', 'delete')
-  nnoremap <silent><buffer><expr> p
-  \ denite#do_map('do_action', 'preview')
-  nnoremap <silent><buffer><expr> q
-  \ denite#do_map('quit')
-  nnoremap <silent><buffer><expr> i
-  \ denite#do_map('open_filter_buffer')
-  nnoremap <silent><buffer><expr> <Space>
-  \ denite#do_map('toggle_select').'j'
+""" DDU
+
+call ddu#custom#patch_global({
+    \     "ui": "ff",
+    \     "sourceOptions": {
+    \         "_": {
+    \             "matchers": ["matcher_substring"]
+    \         },
+    \     },
+    \ })
+
+" Prepare settings for use with DduNodeFiles
+call ddu#custom#patch_local("node-files", {
+    \     "sources": ["file_rec"],
+    \     "sourceParams": {
+    \         "file_rec": {
+    \             "ignoredDirectories": [".git", "node_modules"],
+    \         }
+    \     }
+    \ })
+
+" Prepare settings for use with DduWholeFiles
+call ddu#custom#patch_local("whole-files", {
+    \     "sources": ["file_rec"],
+    \     "sourceParams": {
+    \         "file_rec": {
+    \             "ignoredDirectories": [],
+    \         }
+    \     },
+    \     "sourceOptions": {
+    \         "file_rec": {
+    \             "maxItems": 50000
+    \         }
+    \     }
+    \ })
+
+" Set a Keymap (`e`) effective only in ddu-ui-ff
+autocmd FileType ddu-ff call s:ddu_ff_settings()
+function s:ddu_ff_settings() abort
+    nnoremap <buffer> e <Cmd>call ddu#ui#do_action('itemAction', {'name': 'open'})<CR>
 endfunction
+
+" Prepare commands to call ddu#start with each option set name
+command! DduNodeFiles call ddu#start({"name": "node-files", "sourceOptions": {"file_rec": {"path": getcwd()}}})
+command! DduWholeFiles call ddu#start({"name": "whole-files", "sourceOptions": {"file_rec": {"path": getcwd()}}})
 
 nnoremap <Space>
 \ :Commands<CR>
