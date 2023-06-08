@@ -66,8 +66,9 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'bling/vim-bufferline'
 Plug 'chrisbra/Recover.vim'
 
-" denite
-Plug 'Shougo/denite.nvim', {'do': ':UpdateRemotePlugins'}
+" ddu (former denite)
+Plug 'vim-denops/denops.vim'
+Plug 'Shougo/ddu.vim'
 
 " Extended regex syntax
 Plug 'othree/eregex.vim'
@@ -295,22 +296,35 @@ nnoremap <leader>vn :set virtualedit=<CR>
 nnoremap <silent> <c-_> :set hlsearch!<cr>
 
 "" Plugin specific commands
-" denite
-autocmd FileType denite call s:denite_my_settings()
-function! s:denite_my_settings() abort
-  nnoremap <silent><buffer><expr> <CR>
-  \ denite#do_map('do_action')
-  nnoremap <silent><buffer><expr> d
-  \ denite#do_map('do_action', 'delete')
-  nnoremap <silent><buffer><expr> p
-  \ denite#do_map('do_action', 'preview')
-  nnoremap <silent><buffer><expr> q
-  \ denite#do_map('quit')
-  nnoremap <silent><buffer><expr> i
-  \ denite#do_map('open_filter_buffer')
-  nnoremap <silent><buffer><expr> <Space>
-  \ denite#do_map('toggle_select').'j'
-endfunction
+" ddu
+" You must set the default ui.
+" NOTE: ff ui
+" https://github.com/Shougo/ddu-ui-ff
+call ddu#custom#patch_global({
+    \ 'ui': 'ff',
+    \ })
+
+" You must set the default action.
+" NOTE: file kind
+" https://github.com/Shougo/ddu-kind-file
+call ddu#custom#patch_global({
+    \   'kindOptions': {
+    \     'file': {
+    \       'defaultAction': 'open',
+    \     },
+    \   }
+    \ })
+
+" Specify matcher.
+" NOTE: matcher_substring filter
+" https://github.com/Shougo/ddu-filter-matcher_substring
+call ddu#custom#patch_global({
+    \   'sourceOptions': {
+    \     '_': {
+    \       'matchers': ['matcher_substring'],
+    \     },
+    \   }
+    \ })
 
 nnoremap <Space>
 \ :Commands<CR>
