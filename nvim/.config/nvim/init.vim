@@ -314,3 +314,6 @@ colorscheme gruvbox
 " Disable unused providers
 let g:loaded_perl_provider = 0
 let g:loaded_ruby_provider = 0
+
+" Use Python3 from venv
+let g:python3_host_prog = '/Users/gennadijyatskov/.pyenv/versions/py3nvim/bin/python'
