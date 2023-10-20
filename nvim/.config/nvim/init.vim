@@ -82,9 +82,6 @@ Plug 'tpope/vim-fugitive'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
-" python
-Plug 'bfredl/nvim-ipy'
-
 " rust
 Plug 'simrat39/rust-tools.nvim'
 
