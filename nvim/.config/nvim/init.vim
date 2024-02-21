@@ -95,7 +95,6 @@ Plug 'simrat39/rust-tools.nvim'
 if !exists('g:vscode')
 Plug 'preservim/nerdtree', {'on': 'NERDTreeToggle'}
 Plug 'Xuyuanp/nerdtree-git-plugin',
-"Plug 'ervandew/supertab'
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-treesitter/nvim-treesitter' " Do :TSInstall all and :TSUpdate
