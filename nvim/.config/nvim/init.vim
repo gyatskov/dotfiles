@@ -278,6 +278,7 @@ rust_tools.setup(rust_tools_opts)
 --  lspconfig[lsp].setup { on_attach = on_attach }
 --end
 
+lspconfig.cmake.setup{on_attach=on_attach}
 lspconfig.pyright.setup{on_attach=on_attach}
 lspconfig.eslint.setup{on_attach=on_attach}
 lspconfig.cssls.setup{on_attach=on_attach}
