@@ -1,13 +1,13 @@
 """
-" @author 
-"                                     
-"      _/_/_/    _/_/_/  _/      _/   
-"   _/        _/          _/  _/      
-"  _/  _/_/    _/_/        _/         
-" _/    _/        _/      _/          
-"  _/_/_/  _/_/_/        _/           
+" @author
 "
-                                    
+"      _/_/_/    _/_/_/  _/      _/
+"   _/        _/          _/  _/
+"  _/  _/_/    _/_/        _/
+" _/    _/        _/      _/
+"  _/_/_/  _/_/_/        _/
+"
+
 " General nvim settings
 
 
@@ -17,16 +17,16 @@ filetype plugin indent on
 syntax enable
 
 " Text editing settings
-set shiftwidth=4 
-set expandtab 
-set tabstop=4 
-set softtabstop=4 
+set shiftwidth=4
+set expandtab
+set tabstop=4
+set softtabstop=4
 set autoindent
 set number showmatch
 " Hides an abandoned buffer instead of unloading it
 set hidden
 
-" Helper function for stripping trailing whitespace 
+" Helper function for stripping trailing whitespace
 " Taken from StackOverflow
 fun! <SID>StripTrailingWhitespaces()
     let l = line(".")
@@ -58,15 +58,12 @@ set noswapfile
 call plug#begin()
 "Plug 'SirVer/ultisnips'
 "Plug 'honza/vim-snippets'
-"Plug 'ervandew/supertab'
 
 " general plugins
 Plug 'majutsushi/tagbar'
 Plug 'bling/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'bling/vim-bufferline'
-Plug 'preservim/nerdtree', {'on': 'NERDTreeToggle'}
-Plug 'Xuyuanp/nerdtree-git-plugin', 
 Plug 'chrisbra/Recover.vim'
 
 " denite
@@ -95,6 +92,10 @@ Plug 'bfredl/nvim-ipy'
 Plug 'simrat39/rust-tools.nvim'
 
 "" Optional dependencies
+if !exists('g:vscode')
+Plug 'preservim/nerdtree', {'on': 'NERDTreeToggle'}
+Plug 'Xuyuanp/nerdtree-git-plugin',
+"Plug 'ervandew/supertab'
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-treesitter/nvim-treesitter' " Do :TSInstall all and :TSUpdate
@@ -106,6 +107,7 @@ Plug 'rhysd/wandbox-vim'
 
 " debugging
 Plug 'sakhnik/nvim-gdb'
+endif
 
 Plug 'qpkorr/vim-bufkill'
 
@@ -269,7 +271,7 @@ local rust_tools_opts = {
 local rust_tools = require('rust-tools')
 rust_tools.setup(rust_tools_opts)
 
--- Use a loop to conveniently both setup defined servers 
+-- Use a loop to conveniently both setup defined servers
 -- and map buffer local keybindings when the language server attaches
 
 --local servers = { "ccls", "rust_analyzer" }
