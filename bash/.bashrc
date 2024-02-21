@@ -74,7 +74,7 @@ esac
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
-    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+    test -r $HOME/.dircolors && eval "$(dircolors -b $HOME/.dircolors)" || eval "$(dircolors -b)"
     alias ls='ls --color=auto'
     #alias dir='dir --color=auto'
     #alias vdir='vdir --color=auto'
@@ -88,8 +88,8 @@ fi
 #export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
 # Extend PATH, e.g. for executables added by pip
-if [ -f ~/.extend_path ]; then
-    source ~/.extend_path
+if [ -f $HOME/.extend_path ]; then
+    source $HOME/.extend_path
 fi
 
 if [[ -n "$(command -v nvim)" ]]; then
@@ -97,8 +97,8 @@ if [[ -n "$(command -v nvim)" ]]; then
     export VISUAL='nvim'
 
     # Avoid nested editors
-    if [ -f ~/.use_nvr ]; then
-        source ~/.use_nvr
+    if [ -f $HOME/.use_nvr ]; then
+        source $HOME/.use_nvr
     fi
 fi
 if [[ -n "$(command -v most)" ]]; then
@@ -115,8 +115,8 @@ fi
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
 # Alias definitions
-if [ -f ~/.bash_aliases ]; then
-    source ~/.bash_aliases
+if [ -f $HOME/.bash_aliases ]; then
+    source $HOME/.bash_aliases
 fi
 
 # enable programmable completion features (you don't need to enable
@@ -131,6 +131,6 @@ if ! shopt -oq posix; then
 fi
 
 # FZF
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+[ -f $HOME/.fzf.bash ] && source $HOME/.fzf.bash
 
-[ -f ~/.cargo/env ] && source ~/.cargo/env
+[ -f $HOME/.cargo/env ] && source $HOME/.cargo/env
