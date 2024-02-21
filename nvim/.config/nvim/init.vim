@@ -97,7 +97,7 @@ Plug 'preservim/nerdtree', {'on': 'NERDTreeToggle'}
 Plug 'Xuyuanp/nerdtree-git-plugin',
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-treesitter/nvim-treesitter' " Do :TSInstall all and :TSUpdate
+Plug 'nvim-treesitter/nvim-treesitter' " Do ':TSInstall all' and ':TSUpdate'
 "manually, afterwards
 Plug 'nvim-telescope/telescope.nvim'
 
