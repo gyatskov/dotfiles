@@ -105,7 +105,7 @@ Plug 'nvim-telescope/telescope.nvim'
 Plug 'rhysd/wandbox-vim'
 
 " debugging
-Plug 'sakhnik/nvim-gdb'
+"Plug 'sakhnik/nvim-gdb'
 endif
 
 Plug 'qpkorr/vim-bufkill'
