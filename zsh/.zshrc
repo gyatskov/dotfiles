@@ -81,46 +81,34 @@ source $ZSH/oh-my-zsh.sh
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
-# Extend PATH, e.g. for executables added by pip
-if [ -f ~/.extend_path ]; then
-    source ~/.extend_path
-fi
-
-# Preferred editor for local and remote sessions
+#Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
-   export EDITOR='vim'
+  export EDITOR='vim'
 else
-    if [[ -n "$(command -v nvim)" ]]; then
-        export EDITOR='nvim'
-        export VISUAL='nvim'
-        # Avoid nested editors
-        if [ -f ~/.use_nvr ]; then
-            source ~/.use_nvr
-        fi
-    fi
-    if [[ -n "$(command -v most)" ]]; then
-        export PAGER='most'
-    fi
+  export EDITOR='nvim'
 fi
 
-# Set delta pager to less, if it is installed
-if [[ -n "$(command -v delta)" ]]; then
-    export DELTA_PAGER=less
-fi
+# Compilation flags
+# export ARCHFLAGS="-arch x86_64"
+
+# Set personal aliases, overriding those provided by oh-my-zsh libs,
+# plugins, and themes. Aliases can be placed here, though oh-my-zsh
+# users are encouraged to define aliases within the ZSH_CUSTOM folder.
+# For a full list of active aliases, run `alias`.
 #
-# Aliases
-source ~/.common_aliases
-eval "$(/opt/homebrew/bin/brew shellenv)"
+# Example aliases
+source $HOME/.common_aliases
+
+# Opt out of Azure Function tools data collection
+export FUNCTIONS_CORE_TOOLS_TELEMETRY_OPTOUT=1
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# fzf
+eval "$(fzf --zsh)"
 #
-# Used to suppress username display in status line.
-DEFAULT_USER=$USER
-
-
-# FZF
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-export FZF_DEFAULT_COMMAND='fd --type f'
-
-# Init pyenv
-export PYENV_ROOT="$HOME/.pyenv"
-command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+# pyenv
 eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
