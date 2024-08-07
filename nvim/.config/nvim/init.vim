@@ -69,6 +69,10 @@ Plug 'chrisbra/Recover.vim'
 " ddu (former denite)
 Plug 'vim-denops/denops.vim'
 Plug 'Shougo/ddu.vim'
+Plug 'Shougo/ddu-ui-ff'
+Plug 'Shougo/ddu-filter-matcher_substring'
+Plug 'Shougo/ddu-kind-file'
+Plug 'Shougo/ddu-source-file_rec'
 
 " Extended regex syntax
 Plug 'othree/eregex.vim'
@@ -295,36 +299,51 @@ nnoremap <leader>vn :set virtualedit=<CR>
 " Toggles search highlighting with CTRL-/
 nnoremap <silent> <c-_> :set hlsearch!<cr>
 
-"" Plugin specific commands
-" ddu
-" You must set the default ui.
-" NOTE: ff ui
-" https://github.com/Shougo/ddu-ui-ff
+""" DDU
+
 call ddu#custom#patch_global({
-    \ 'ui': 'ff',
+    \     "ui": "ff",
+    \     "sourceOptions": {
+    \         "_": {
+    \             "matchers": ["matcher_substring"]
+    \         },
+    \     },
     \ })
 
-" You must set the default action.
-" NOTE: file kind
-" https://github.com/Shougo/ddu-kind-file
-call ddu#custom#patch_global({
-    \   'kindOptions': {
-    \     'file': {
-    \       'defaultAction': 'open',
-    \     },
-    \   }
+" Prepare settings for use with DduNodeFiles
+call ddu#custom#patch_local("node-files", {
+    \     "sources": ["file_rec"],
+    \     "sourceParams": {
+    \         "file_rec": {
+    \             "ignoredDirectories": [".git", "node_modules"],
+    \         }
+    \     }
     \ })
 
-" Specify matcher.
-" NOTE: matcher_substring filter
-" https://github.com/Shougo/ddu-filter-matcher_substring
-call ddu#custom#patch_global({
-    \   'sourceOptions': {
-    \     '_': {
-    \       'matchers': ['matcher_substring'],
+" Prepare settings for use with DduWholeFiles
+call ddu#custom#patch_local("whole-files", {
+    \     "sources": ["file_rec"],
+    \     "sourceParams": {
+    \         "file_rec": {
+    \             "ignoredDirectories": [],
+    \         }
     \     },
-    \   }
+    \     "sourceOptions": {
+    \         "file_rec": {
+    \             "maxItems": 50000
+    \         }
+    \     }
     \ })
+
+" Set a Keymap (`e`) effective only in ddu-ui-ff
+autocmd FileType ddu-ff call s:ddu_ff_settings()
+function s:ddu_ff_settings() abort
+    nnoremap <buffer> e <Cmd>call ddu#ui#do_action('itemAction', {'name': 'open'})<CR>
+endfunction
+
+" Prepare commands to call ddu#start with each option set name
+command! DduNodeFiles call ddu#start({"name": "node-files", "sourceOptions": {"file_rec": {"path": getcwd()}}})
+command! DduWholeFiles call ddu#start({"name": "whole-files", "sourceOptions": {"file_rec": {"path": getcwd()}}})
 
 nnoremap <Space>
 \ :Commands<CR>
